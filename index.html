@@ -1,225 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>qatual.js</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    html, body {
-      margin: 0; padding: 0;
-      height: 100%;
-      background: black;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      overflow-x: hidden;
-      position: relative;
-      z-index: 0;
-      cursor: url('https://v4.skin/stuff/icons/cursor.png'), auto;
-    }
-    #particles-js {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-    }
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(17,17,17,0.9);
-      backdrop-filter: saturate(180%) blur(5px);
-      z-index: 9999;
-      padding: 20px 0;
-    }
-    .nav-container {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-    }
-    .navbar {
-      list-style: none;
-      display: flex;
-      gap: 40px;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-    }
-    .navbar li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.4rem;
-      padding: 10px 16px;
-      border-radius: 10px;
-      transition: color 0.3s ease, box-shadow 0.3s ease;
-    }
-    .navbar li a:hover,
-    .navbar li a:focus {
-      color: #ff5c33;
-      box-shadow: 0 0 8px #ff5c33, 0 0 20px #ff5c33;
-      outline: none;
-    }
-    .nav-logo {
-      height: 48px;
-      width: auto;
-      margin-left: 40px;
-      border-radius: 6px;
-    }
-    h1 {
-      text-align: center;
-      font-size: 4rem;
-      color: orange;
-      margin-top: 160px;
-      text-shadow: 0 0 20px orange;
-    }
-    .search-container {
-      text-align: center;
-      margin-top: 40px;
-    }
-    .search-container input {
-      width: 80%;
-      max-width: 800px;
-      font-size: 1.6rem;
-      padding: 18px 24px;
-      border-radius: 12px;
-      border: none;
-      outline: none;
-      background: #1a1a1a;
-      color: white;
-      box-shadow: 0 0 12px orange;
-      cursor: url('https://v4.skin/stuff/icons/text.png'), text;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    .search-container input:focus {
-      box-shadow: 0 0 30px orange, 0 0 80px #ff6600;
-      background: #222;
-      animation: shimmer 2s infinite linear;
-    }
-    @keyframes shimmer {
-      0% { background-position: -500px 0; }
-      100% { background-position: 500px 0; }
-    }
-    .main-img {
-      display: block;
-      margin: 40px auto 0 auto;
-      max-width: 300px;
-      width: 90%;
-      border-radius: 16px;
-    }
-  </style>
-</head>
-<body>
-  <div id="particles-js"></div>
-<nav>
-  <div class="nav-container">
-    <ul class="navbar">
-      <li><a href="index.html" title="Home"><img src="icons/house-solid.svg" /></a></li>
-      <li><a href="p.html" title="Partners"><img src="icons/tool.svg" /></a></li>
-      <li><a href="c.html" title="Credits"><img src="icons/gear-solid.svg" /></a></li>
-      <li><a href="games.html" title="Games"><img src="icons/gamepad-solid.svg" /></a></li>
-    </ul>
-    <img class="nav-logo" src="https://femboys.lat/bk.png" alt="Logo" />
-  </div>
-</nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>qatual.js Portal</title>
+    <meta name="description" content="Explore the world of qatual.js" />
+    <meta name="keywords" content="qatual, javascript, unblocker, ultraviolet" />
+    <meta name="theme-color" content="#1e1e2f" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="baremux/index.js" defer></script>
+    <script src="epoxy/index.js" defer></script>
+    <script src="uv/uv.bundle.js" defer></script>
+    <script src="public/qatual/uv.config.js" defer></script>
+    <script src="public/register-sw.js" defer></script>
+    <script src="public/search.js" defer></script>
+    <script src="public/index.js" defer></script>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+        color: #f5f5f5;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
 
-<style>
-  nav {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: rgba(17, 17, 17, 0.9);
-    backdrop-filter: saturate(180%) blur(5px);
-    z-index: 9999;
-    padding: 16px 24px;
-    border-radius: 12px;
-    max-width: 320px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
+      header {
+        text-align: center;
+        padding: 3rem 1rem 1rem;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
 
-  .nav-container {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    width: 100%;
-  }
+      .logo {
+        width: 200px;
+        margin-bottom: 3rem;
+      }
 
-  .navbar {
-    list-style: none;
-    display: flex;
-    gap: 12px;
-    margin: 0;
-    padding: 0;
-  }
+      h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+        color: #ffcc70;
+      }
 
-  .navbar li a img {
-    height: 28px;
-    width: 28px;
-    filter: invert(100%) brightness(200%);
-    transition: filter 0.3s ease, transform 0.3s ease;
-    cursor: pointer;
-  }
+      main {
+        flex: 1;
+        padding: 2rem;
+        text-align: center;
+      }
 
-  .navbar li a:hover img,
-  .navbar li a:focus img {
-    filter: invert(85%) drop-shadow(0 0 6px #ff5c33);
-    transform: scale(1.1);
-  }
+      .tagline {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        color: #ccc;
+      }
 
-  .nav-logo {
-    height: 40px;
-    width: auto;
-    border-radius: 6px;
-    flex-shrink: 0;
-    margin-left: 8px;
-  }
-</style>
-</body>
-  <h1>Fem Proxy V2</h1>
-  <div class="search-container">
-    <form id="searchForm">
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search anything..."
-        autocomplete="off"
-        required
-      />
-    </form>
-  </div>
-  <img
-    src="assets/bk.png"
-    class="main-img"
-    alt="Silly Cat"
-  />
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      particles: {
-        number: { value: 168 },
-        color: { value: "#ffffff" },
-        shape: { type: "circle" },
-        size: { value: 4, random: true },
-        move: { enable: true, speed: 2 },
-        line_linked: { enable: false }
-      },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" }
-        },
-        modes: {
-          repulse: { distance: 100 },
-          push: { particles_nb: 4 }
-        }
-      },
-      retina_detect: true
-    });
-  </script>
-</body>
+      #uv-address {
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        border: none;
+        width: 80%;
+        max-width: 600px;
+        font-size: 1rem;
+        background-color: #1c1c2e;
+        color: white;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+
+      footer {
+        padding: 2rem 1rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        text-align: center;
+        font-size: 0.9rem;
+        color: #aaa;
+      }
+
+      footer a {
+        margin: 0 0.5rem;
+        color: #ffcc70;
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      #uv-error {
+        margin-top: 1rem;
+        color: #ff7070;
+      }
+
+      iframe {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>qatual.js</h1>
+    </header>
+
+    <main>
+      <p class="tagline">Made with ♥ by <strong>@qatual</strong> on Discord</p>
+
+      <form id="uv-form">
+        <input
+          id="uv-search-engine"
+          type="hidden"
+          value="https://www.google.com/search?q=%s"
+        />
+        <input
+          id="uv-address"
+          type="text"
+          placeholder="Type a URL or search the web freely..."
+        />
+      </form>
+
+      <div>
+        <p id="uv-error"></p>
+        <pre id="uv-error-code"></pre>
+      </div>
+    </main>
+
+    <footer>
+      <div>
+        <a href="https://soloo.win" target="_blank">qatual / soloo</a>
+        <a href="https://dsc.gg/polytainment" target="_blank">Discord</a>
+      </div>
+      <div>qatual.js &copy; qatual 2025</div>
+    </footer>
+
+    <iframe id="uv-frame"></iframe>
+  </body>
 </html>
